@@ -25,19 +25,33 @@ function Header({ props, ...rest }: HeaderProps) {
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#works">Works</a>
-        <div className="resumeLink">Resume</div>
+        <div className="resumeLink" onClick={openCV}>
+          Resume
+        </div>
       </div>
-      <div onClick={openNavMenu} className="showNavButton"><HamburgerIcon/></div>
+      <div onClick={openNavMenu} className="showNavButton">
+        <HamburgerIcon />
+      </div>
       <div className={`navgationDialog ${openNav ? "showNavBackDrop" : ""}`}>
         <div onClick={closeNavMenu} className="closeButton">
           x
         </div>
         <div className={`navigationDialogLinks ${openNav ? "showNav" : ""}`}>
-          <a onClick={closeNavMenu} href="#home">Home</a>
-          <a onClick={closeNavMenu} href="#experience">Experience</a>
-          <a onClick={closeNavMenu} href="#skills">Skills</a>
-          <a onClick={closeNavMenu} href="#works">Works</a>
-          <div className="resumeLink" onClick={openCV}>Resume</div>
+          <a onClick={closeNavMenu} href="#home">
+            Home
+          </a>
+          <a onClick={closeNavMenu} href="#experience">
+            Experience
+          </a>
+          <a onClick={closeNavMenu} href="#skills">
+            Skills
+          </a>
+          <a onClick={closeNavMenu} href="#works">
+            Works
+          </a>
+          <div className="resumeLink" onClick={openCV}>
+            Resume
+          </div>
         </div>
       </div>
     </div>
