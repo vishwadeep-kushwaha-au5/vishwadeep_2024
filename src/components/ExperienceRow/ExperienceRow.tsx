@@ -14,7 +14,7 @@ function ExperienceRow({ props, ...rest }: ExperienceRowProps) {
         <div className="position">{props.position}</div>
         <div className="desc">{props.desc}</div>
         <div className="techs">
-          {props.tech.map((t) => (
+          {props.tech.map((t: any) => (
             <TextPill small={true} key={t}>
               {t}
             </TextPill>

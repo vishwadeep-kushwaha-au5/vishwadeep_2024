@@ -10,36 +10,36 @@ const device = {
 }
 
 const media = {
-  xs: (...args: any[]) => css`
+  xs: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.xs}) {
       ${css(...args)};
     }
   `,
-  sm: (...args: any[]) => css`
+  sm: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.sm}) {
       ${css(...args)};
     }
   `,
-  md: (...args: any[]) => css`
+  md: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.md}) {
       ${css(...args)};
     }
   `,
-  lg: (...args: any[]) => css`
+  lg: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.lg}) {
       ${css(...args)};
     }
   `,
-  xl: (...args: any[]) => css`
+  xl: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.xl}) {
       ${css(...args)};
     }
   `,
-  xxl: (...args: any[]) => css`
+  xxl: (...args: [TemplateStringsArray, ...any[]]) => css`
     @media (max-width: ${device.xxl}) {
       ${css(...args)};
     }
   `,
-}
+};
 
 export default media

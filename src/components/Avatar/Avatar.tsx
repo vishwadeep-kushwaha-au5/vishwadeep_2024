@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { debounce } from "../../utils/helper";
 
 function percentage(partialValue: number, totalValue: number) {
-    return (100 * partialValue) / totalValue;
-  }
-
+  return (100 * partialValue) / totalValue;
+}
 
 gsap.registerPlugin(CustomEase);
 
-type AvatarProps = PropsWithChildren<{ props: any }>;
+type AvatarProps = PropsWithChildren<{ props?: any }>;
 
 function Avatar({ props, ...rest }: AvatarProps) {
-  const container = useRef();
+  const container = useRef<HTMLDivElement>(null);
 
   const [xPosition, setXPosition] = useState(null);
   const [yPosition, setYPosition] = useState(null);
@@ -32,14 +31,14 @@ function Avatar({ props, ...rest }: AvatarProps) {
   });
 
   const meTl = gsap.timeline({
-    onComplete: animateFace
+    onComplete: animateFace,
   });
 
   const dizzy = gsap.timeline({
     paused: true,
     onComplete: () => {
-      setDizzyIsPlaying(false)
-    }
+      setDizzyIsPlaying(false);
+    },
   });
 
   // gsap can use queryselector in the quick setter but this is better for performance as it touches the DOM less
@@ -53,7 +52,6 @@ function Avatar({ props, ...rest }: AvatarProps) {
     eyebrowLeft: document.querySelector(".eyebrow-left"),
     eyebrowRight: document.querySelector(".eyebrow-right"),
   };
-
 
   // function addMouseEvent() {
   //   const safeToAnimate = window.matchMedia(
@@ -80,7 +78,6 @@ function Avatar({ props, ...rest }: AvatarProps) {
   }
 
   const debouncedUpdateScreenCoords = debounce(updateScreenCoords, 0);
-
 
   function animateFace() {
     if (!xPosition || !yPosition) return;
@@ -124,18 +121,17 @@ function Avatar({ props, ...rest }: AvatarProps) {
       yPercent: y * 2.5,
     });
 
-    setStoredXPosition(xPosition)
-    setStoredYPosition(yPosition)
+    setStoredXPosition(xPosition);
+    setStoredYPosition(yPosition);
   }
 
-  
   function updateWindowSize() {
     setHeight(window.innerHeight);
     setWidth(window.innerWidth);
   }
 
   useEffect(() => {
-//     // update if browser resizes
+    //     // update if browser resizes
     window.addEventListener("resize", updateWindowSize);
     window.addEventListener("mousemove", debouncedUpdateScreenCoords);
 
@@ -260,124 +256,123 @@ function Avatar({ props, ...rest }: AvatarProps) {
           0.15
         );
 
-        dizzy
-  .to(
-    ".eyes",
-    {
-      duration: 0.01,
-      opacity: 0
-    },
-    0
-  )
-  .to(
-    ".dizzy",
-    {
-      duration: 0.01,
-      opacity: 0.3
-    },
-    0
-  )
-  .to(
-    ".mouth",
-    {
-      duration: 0.01,
-      opacity: 0
-    },
-    0
-  )
-  .to(
-    ".oh",
-    {
-      duration: 0.01,
-      opacity: 0.85
-    },
-    0
-  )
-  .to(
-    ".head, .hair-back, .shadow",
-    {
-      duration: 6,
-      rotate: 2,
-      transformOrigin: "50% 50%",
-      ease: "myWiggle"
-    },
-    0
-  )
-  .to(
-    ".me",
-    {
-      duration: 6,
-      rotate: -2,
-      transformOrigin: "50% 100%",
-      ease: "myWiggle"
-    },
-    0
-  )
-  .to(
-    ".me",
-    {
-      duration: 4,
-      scale: 0.99,
-      transformOrigin: "50% 100%",
-      ease: "lessWiggle"
-    },
-    0
-  )
-  .to(
-    ".dizzy-1",
-    {
-      rotate: -360,
-      duration: 1,
-      repeat: 5,
-      transformOrigin: "50% 50%",
-      ease: "none"
-    },
-    0.01
-  )
-  .to(
-    ".dizzy-2",
-    {
-      rotate: 360,
-      duration: 1,
-      repeat: 5,
-      transformOrigin: "50% 50%",
-      ease: "none"
-    },
-    0.01
-  )
-  .to(
-    ".eyes",
-    {
-      duration: 0.01,
-      opacity: 1
-    },
-    4
-  )
-  .to(
-    ".dizzy",
-    {
-      duration: 0.01,
-      opacity: 0
-    },
-    4
-  )
-  .to(
-    ".oh",
-    {
-      duration: 0.01,
-      opacity: 0
-    },
-    4
-  )
-  .to(
-    ".mouth",
-    {
-      duration: 0.01,
-      opacity: 1
-    },
-    4
-  );
-
+      dizzy
+        .to(
+          ".eyes",
+          {
+            duration: 0.01,
+            opacity: 0,
+          },
+          0
+        )
+        .to(
+          ".dizzy",
+          {
+            duration: 0.01,
+            opacity: 0.3,
+          },
+          0
+        )
+        .to(
+          ".mouth",
+          {
+            duration: 0.01,
+            opacity: 0,
+          },
+          0
+        )
+        .to(
+          ".oh",
+          {
+            duration: 0.01,
+            opacity: 0.85,
+          },
+          0
+        )
+        .to(
+          ".head, .hair-back, .shadow",
+          {
+            duration: 6,
+            rotate: 2,
+            transformOrigin: "50% 50%",
+            ease: "myWiggle",
+          },
+          0
+        )
+        .to(
+          ".me",
+          {
+            duration: 6,
+            rotate: -2,
+            transformOrigin: "50% 100%",
+            ease: "myWiggle",
+          },
+          0
+        )
+        .to(
+          ".me",
+          {
+            duration: 4,
+            scale: 0.99,
+            transformOrigin: "50% 100%",
+            ease: "lessWiggle",
+          },
+          0
+        )
+        .to(
+          ".dizzy-1",
+          {
+            rotate: -360,
+            duration: 1,
+            repeat: 5,
+            transformOrigin: "50% 50%",
+            ease: "none",
+          },
+          0.01
+        )
+        .to(
+          ".dizzy-2",
+          {
+            rotate: 360,
+            duration: 1,
+            repeat: 5,
+            transformOrigin: "50% 50%",
+            ease: "none",
+          },
+          0.01
+        )
+        .to(
+          ".eyes",
+          {
+            duration: 0.01,
+            opacity: 1,
+          },
+          4
+        )
+        .to(
+          ".dizzy",
+          {
+            duration: 0.01,
+            opacity: 0,
+          },
+          4
+        )
+        .to(
+          ".oh",
+          {
+            duration: 0.01,
+            opacity: 0,
+          },
+          4
+        )
+        .to(
+          ".mouth",
+          {
+            duration: 0.01,
+            opacity: 1,
+          },
+          4
+        );
     },
     { scope: container }
   );
@@ -424,7 +419,7 @@ function Avatar({ props, ...rest }: AvatarProps) {
           <g className="me" opacity="0">
             <g className="body">
               <rect
-              className="shadow"
+                className="shadow"
                 x="70.99"
                 y="40.26"
                 width="69.54"

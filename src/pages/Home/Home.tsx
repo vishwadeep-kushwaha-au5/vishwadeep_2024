@@ -5,7 +5,7 @@ import media from "../../styled/breakpoints";
 import ContentDiv from "../../components/styled/Content";
 import PieChart from "../../components/PieChart/PieChart";
 import Paper from "../../components/PaperBackground/Paper";
-import Lamp from "../../components/Lamp/lamp";
+import Lamp from "../../components/Lamp/Lamp";
 
 type HomeProps = PropsWithChildren<{ props?: any }>;
 

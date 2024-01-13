@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 import ContentDiv from "../../components/styled/Content";
-import Lamp from "../../components/Lamp/lamp";
 import TextPill from "../../components/TextPill/TextPill";
 import media from "../../styled/breakpoints";
 

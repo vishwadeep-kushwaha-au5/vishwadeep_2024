@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
-type TextPillProps = PropsWithChildren<{ props?: any; small: boolean }>;
+type TextPillProps = PropsWithChildren<{ props?: any; small?: boolean }>;
 
 function TextPill({ props, small = false, ...rest }: TextPillProps) {
   return (

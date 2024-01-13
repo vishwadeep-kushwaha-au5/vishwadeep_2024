@@ -1,13 +1,3 @@
-// import Lamp from "../Lamp/lamp";
-
-import React from "react";
-
-// export default function PieChart(){
-//     return <>
-//         {/* <Lamp/> */}
-//     </>
-// }
-
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
@@ -31,19 +21,23 @@ const calcMotion = (order: string, distance: number) => {
 };
 
 const PieChart = () => {
-  const svgRef = useRef(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const svg = svgRef.current;
+    if (!svg) return;
     while (svg.firstChild) {
       // Loop through the child nodes
       svg.removeChild(svg.firstChild); // Remove each child node
     }
     const width = svg.getAttribute("width");
     const height = svg.getAttribute("height");
-    const radius = Math.min(width, height) / 2;
-    const centerX = width / 2;
-    const centerY = height / 2;
+    if (!width || !height) return;
+    const int_width = parseInt(width);
+    const int_height = parseInt(height);
+    const radius = Math.min(int_width, int_height) / 2;
+    const centerX = int_width / 2;
+    const centerY = int_height / 2;
 
     // Create a group element to hold the pie slices
     const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -81,20 +75,20 @@ const PieChart = () => {
       // Set the stroke-dasharray and stroke-dashoffset properties
       const length = path.getTotalLength().toString();
       path.setAttribute("stroke", d.color);
-      path.setAttribute("stroke-width", 1);
+      path.setAttribute("stroke-width", "1");
       path.setAttribute("stroke-dasharray", length);
       path.setAttribute("stroke-dashoffset", length);
 
       // Append the path to the group element
       g.appendChild(path);
-    const motion = calcMotion(d.order,10)
+      const motion = calcMotion(d.order, 10);
       const hover = () => {
         gsap.to(path, { scale: 1.1, ...motion, duration: 0.5 });
       };
 
       // create a leave function that restores the div
       const leave = () => {
-        gsap.to(path, { scale: 1, x: "0",y:"0", duration: 0.5 });
+        gsap.to(path, { scale: 1, x: "0", y: "0", duration: 0.5 });
       };
 
       // add event listeners to the div
