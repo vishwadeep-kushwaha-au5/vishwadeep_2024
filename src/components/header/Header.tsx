@@ -2,7 +2,7 @@ import { PropsWithChildren, useState } from "react";
 import styled from "styled-components";
 import media from "../../styled/breakpoints";
 import HamburgerIcon from "../HamburgerIcon/HamburgerIcon";
-import CV from "../../assets/pdfs/Viswadeep_2024.pdf"
+import CV from "../../assets/pdfs/Vishwadeep_SDE03.pdf"
 
 type HeaderProps = PropsWithChildren<{ props?: any }>;
 
