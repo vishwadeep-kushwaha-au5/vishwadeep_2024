@@ -10,21 +10,42 @@ const data = [{
   date: "Aug 2022 - Present",
   company_name: "SLEEKSKY",
   position: "Software developer",
-  desc: "I am responsible for building robust backend and frontend using react, node, nest.js and technologies around it. While at Sleeksky, I worked on a CMS, adding payment feature and a json visual form editor; and on a University-Hospital Student placement management application.",
-  tech:["NestJS", 'React', 'Express', "Azure", "Keycloak", "Azure Blob Storage", "Stripe", "MUI", "Tailwind" ]
+  desc: `Worked on implementing in house translations on backend.
+  Helped improve performance of analytics functions and
+  decreased response time by 80%.
+  Lead design and development of backends using Nest.js.
+  Helped to create interactive UI for JSON editor using React.
+  Worked on developing data driven site using EJS.
+  Implemented payment method with Stripe on Node server.
+  Helped setting up CI/CD with docker and kubernatics.`,
+  tech:["NestJS", 'React', 'Express', "Azure", "Keycloak", "Azure Blob Storage", "Stripe", "MUI", "Tailwind", "Kubernetes", "Docker" ]
 },
 {
   date: "Dec 2020 - Aug 2022",
   company_name: "FLOCKALONG",
   position: "Web developer",
-  desc: "I was responsible for developing Gatsby based Front-End which served as a platform for customers to create, join and manage trips. Developed and deployed Back-End on Azure to facilitate the front-end. Implemented Algolia search engine and automated data updating to Algolia servers.",
+  desc: `While at FlockAlong, I worked with Gatsby, Nodejs, Netlify
+  Functions, C#, Auth0, Google Maps, Algolia, Cypress.
+  I was responsible for developing Gatsby based Front-End which
+  served as a platform for customers to create, join and manage
+  trips.
+  Helped developing parts of Back-End wriiten in C# and Node.
+  Implemented Algolia search engine and automated data
+  upload/update to Algolia servers
+  Implemented authentication/authorization flow with Auth0.`,
   tech:["Gatsby", "Nodejs", "Netlify Functions", "C#", "Auth0", "Google", "Maps", "Algolia", "Cypress"]
 },
 {
   date: "Dec 2018 - Nov 2019",
   company_name: "KHAOBAO",
   position: "Operations Manager",
-  desc: "I was responsible for development of Android Apps - Customer Side and Delivery Guy app. In parallel I was handling day to day operations including signing new restaurants, improving customer experience and launching new services. Completed 40k successful orders over a period of more than 14 months",
+  desc: `I was responsible for development of Android Apps - Customer
+  Side and Delivery Guy app.
+  In parallel I was handling day to day operations including
+  signing new restaurants, improving customer experience and
+  launching new services.
+  Completed 40k successful orders over a period of more than 14
+  months.`,
   tech:["Java", "Android", "Javascript", "Firebase", "Power BI", "Photoshop"]
 }]
 
